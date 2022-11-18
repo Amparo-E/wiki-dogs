@@ -12,7 +12,8 @@
 
 .container_form{
     background-color: #ffcb82;
-    padding: 45px;
+    width: 500px;
+    /* padding: 45px; */
     border-radius: 10px;
 }
 
@@ -33,4 +34,13 @@
 
 .container_form .form_select {
     padding: 20px;
+}
+
+
+.input_box label {
+    font-size: 20px;
+    display: block;
+    font-weight: bold;
+    font-size: italic;
+    margin-block: 15px;
 }

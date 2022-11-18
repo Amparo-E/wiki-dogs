@@ -101,7 +101,7 @@ const DogCreate = () => {
                         </div>
 
                         <div className={style.input_box}>
-                            <label htmlFor="min_height">Min height: </label>
+                            <label htmlFor="min_height">Height: </label>
                             <input 
                                 type="text"
                                 name="min_height"
@@ -127,7 +127,7 @@ const DogCreate = () => {
                         </div> */}
 
                         <div className={style.input_box}>
-                            <label htmlFor="min_weight">Min weight: </label>
+                            <label htmlFor="min_weight">Weight: </label>
                             <input 
                                 type="text" 
                                 name="min_weight" 
@@ -153,7 +153,7 @@ const DogCreate = () => {
                         </div> */}
 
                         <div className={style.input_box}>
-                            <label htmlFor="max_life_span">Min life: </label>
+                            <label htmlFor="max_life_span">Life: </label>
                             <input 
                                 type="text" 
                                 name="min_life_span" 
