@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Backend",
+            "command": "npm run start",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/api",
+            "type": "node-terminal",
+        },
+        {
+            "name": "Frontend",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000"
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+ .content{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#faebd6 ;
+    overflow: hidden;
+    min-height: 90vh;
+} 
+
+/* en content le digo que quiero que me cente el contenido (content_form) en el medio */
+
+.container_form{
+    background-color: #ffcb82;
+    padding: 45px;
+    border-radius: 10px;
+}
+
+.error{
+    font-size: 13px;
+    color: #fd0000;
+}
+
+
+.container_form button {
+    width: 80px;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f7882f;
+    margin-bottom: 17px;
+}
+
+.container_form .form_select {
+    padding: 20px;
+}
