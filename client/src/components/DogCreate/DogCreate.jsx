@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { createDog, getTemperaments } from "../../redux/actions";
 import SearchBar from "../SearchBar/SearchBar";
 import style from './DogCreate.module.css';
+import { validate } from "./controllerDogCreate";
 
 const DogCreate = () => {
     const dispatch = useDispatch()
     const temperament = useSelector(state => state.temperaments)
 
+    const imageUrl = 'https://assets.puzzlefactory.pl/puzzle/376/321/original.jpg';
 
     const [error, setError] = useState({})
     const [input, setInput] = useState({
@@ -19,38 +21,21 @@ const DogCreate = () => {
         max_life_span: '',
         min_life_span: '',
         temperament: [],
+        image: ''
     })
-
-
-
-    //podria ser mejor pero es trabajo honesto 👉👈
-    const validate = (input) => {
-        const error = {}
-
-        if(!input.name.length) error.name = 'The dog should have a name';
-        if(!isNaN(input.name)) error.name = 'Please use A-Z characters.'
-        if(!input.min_height.length) error.min_height = 'The dog should have a min height';
-        if(!input.max_height.length) error.max_height = 'The dog should have a max height';
-        if(!input.min_weight.length) error.min_weight = 'The dog should have a min weight';
-        if(!input.max_weight.length) error.max_weight = 'The dog should have a max weight';
-        if(!input.min_life_span.length) error.min_life_span = 'The dog should have a min year';
-        if(!input.max_life_span.length) error.max_life_span = 'The dog should have a max year';
-        if(isNaN(input.min_height)) error.min_height = 'The dog height shoul be a number. Example "10-12"'
-        
-        if( input.min_height <= 0) error.min_height = 'the dog cannot have a height less than 0';
-        if( input.max_height > 120) error.max_height = 'The dog cannot be taller than 120';
-        if(input.max_height > 120) error.max_height = 'the dog cannot be taller than 120cm';   
-        
-        return error
-    }
+    
 
     useEffect(() => {
         dispatch(getTemperaments())
-        setError(validate(input))
+        handleValidations();
     }, [dispatch,input])
 
 
+    const handleValidations = async () => {
+        let res = await validate(input);
 
+        setError(res);        
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -69,6 +54,7 @@ const DogCreate = () => {
             max_life_span: '',
             min_life_span: '',
             temperament: [],
+            image: ''
         })
     }
 
@@ -92,6 +78,8 @@ const DogCreate = () => {
         <>
         <SearchBar />
             <div className={style.content}>
+            
+                <img src={input.image === '' || error.image !== undefined ? imageUrl : input.image} alt="" />
                 
                 <form onSubmit={handleSubmit} className={style.container_form}>
 
@@ -152,6 +140,16 @@ const DogCreate = () => {
                                 {error.min_life_span && <p className={style.error}>{error.min_life_span}</p>}
                                 {error.max_life_span && <p className={style.error}>{error.max_life_span}</p>}
                         </div>
+
+                        <div className={style.input_box}>
+                            <label htmlFor="image">Image: </label>
+                            <input 
+                                type="text" 
+                                name="image" 
+                                value={input.image}
+                                onChange={handleChange}/>
+                                {error.image && <p className={style.error}>{error.image}</p>}
+                        </div>
                     
                         <div className={style.form_select}>
                             <h4>Choise your temperament</h4>
@@ -162,11 +160,13 @@ const DogCreate = () => {
                             </select>
                         </div>
 
+
                         { input.temperament?.map(el => <p>{el}</p>) }
                         
-                        { error.length 
-                        ? <button type="submit" disabled className={style.disabled}>Send</button> 
-                        : <button type="submit" className={style.button}>Send</button> }
+                        { Object.keys(error).length === 0
+                        ? <button type="submit" className={style.button}>Send</button> 
+                        : <button type="submit" disabled className={style.disabled}>Send</button> 
+                         }
                         
 
                 </form>

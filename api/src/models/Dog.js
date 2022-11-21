@@ -26,9 +26,6 @@ module.exports = (sequelize) => {
     life_span: {
       type:DataTypes.STRING,
     },
-    // temperament: {
-    //   type: DataTypes.TEXT,
-    // },
     image: {
       type: DataTypes.STRING,
       defaultValue: 'https://assets.puzzlefactory.pl/puzzle/376/321/original.jpg'

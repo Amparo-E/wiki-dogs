@@ -126,7 +126,8 @@ const postedDog = async (body) => {
             max_weight, 
             min_life_span, 
             max_life_span, 
-            temperament} = body;
+            temperament,
+            image} = body;
 
     const height = `${min_height}-${max_height}`;
     const weight = `${min_weight}-${max_weight}`;
@@ -142,7 +143,8 @@ const postedDog = async (body) => {
                 name,
                 height,
                 weight,
-                life_span,            
+                life_span,
+                image            
         });
 
         const findTemperament = await Temperament.findAll({
@@ -158,7 +160,6 @@ const postedDog = async (body) => {
 
 const deletedDog = async (id) => {
  
-        // let dog = await getFromDb();
         const dog = await Dog.destroy({
             where: { id}
         })

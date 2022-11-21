@@ -1,5 +1,4 @@
 const { Router } = require('express');
-const { Dog } = require('../db');
 const {getByQuery, postedDog, getById, deletedDog, putDog} = require('../controllers/controllerDogs')
 
 const router = Router();
