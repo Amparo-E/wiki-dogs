@@ -1,3 +1,4 @@
+export const ERROR = 'ERROR'
 export const GET_ALL_DOGS = 'GET_ALL_DOGS';
 export const SHOW_DOG_DETAIL = 'GET_DOG_DETAIL';
 export const GET_ALL_TEMPERAMENTS = 'GET_ALL_TEMPERAMENTS';
@@ -8,3 +9,9 @@ export const ORDER_BY_WEIGHT = 'ORDER_BY_WEIGHT';
 export const CREATE_DOG = 'CREATE_DOG';
 export const DELETE_DOG = 'DELETE_DOG';
 export const SEARCH_BY_NAME = 'SEARCH_BY_NAME';
+export const CLEAN_DETAIL = 'CLEAN_DETAIL';
+export const DESDE_API = 'DESDE_API';
+export const DESDE_DB = 'DESDE_DB';
+export const DESDE_TODOS = 'DESDE_TODOS';
+export const APPLY_FILTERS = 'APPLY_FILTERS';
+export const SET_FILTER = 'SET_FILTER';

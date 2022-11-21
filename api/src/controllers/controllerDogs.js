@@ -20,8 +20,7 @@ let apiKey = 'live_FFCdYXabwlhHD0VND0xUzRa0zJTyXcvf7XxjCFSsCvvYd07s9dBt5JN0oLq0F
          if(!data.temperament) return entity;
 
          entity.temperament = data.temperament
-         
-        //  entity.temperament = data.temperament.split(',').map(s => s.trim());
+
 
          return entity;
      })
@@ -30,15 +29,32 @@ let apiKey = 'live_FFCdYXabwlhHD0VND0xUzRa0zJTyXcvf7XxjCFSsCvvYd07s9dBt5JN0oLq0F
  };
 
  const getFromDb = async () => {
-    return await Dog.findAll({
+
+    const fromDb = await Dog.findAll({
         include: {
             model: Temperament,
-            attributes: ['name'], //atributos que quiero traer del modelo Temperament, el id lo trae automatico
+            attributes: ['name'], 
             through: {
-                attributes: [],//traer mediante los atributos del modelo
+                attributes: [],
             },
         }
     })
+
+    const dog = fromDb.map(d => {
+
+        const dogie = d.toJSON()
+    
+        
+        if(Array.isArray(dogie.temperaments)) {
+            dogie.temperament = dogie.temperaments.map(t => t.name).join(', ');
+            dogie.temperaments = undefined;
+        }
+
+        return dogie;
+    })
+
+
+    return dog;
 };
 
 const getAll = async () => {
@@ -52,7 +68,6 @@ const getAll = async () => {
 
 const getMaxId = async () => {
     const entities = await getAll();
-
     return Math.max(...entities.map(x => x.id));
 }
 
@@ -60,25 +75,45 @@ const getMaxId = async () => {
 
 
 
-const getByQuery = async (name) => {
+const getByQuery = async (name, source) => {
     const dogsApi = await getApiInfo();
-    const dogsDb = await Dog.findAll()
-    let allDogs = [...dogsApi, ...dogsDb]
+    const dogsDb = await getFromDb();
 
+    let allDogs;
+
+    switch(source) {
+        case 'db':
+            allDogs = [...dogsDb];
+            break;
+        case 'api':
+            allDogs = [...dogsApi];
+            break;
+        default: 
+            allDogs = [...dogsApi, ...dogsDb]
+            
+    }
+    
     if(name) {
-        let getFoundDb = await Dog.findAll();
-        getFoundDb = getFoundDb.filter(e => e.name.toLowerCase().includes(name.toLowerCase()))
-        const rejex = new RegExp('(' + name + ')', 'gi'); // rejex = metodo para string
-        const dogFound = await dogsApi.filter(({ name }) => name.match(rejex));
-        // allDogs = allDogs.filter(d => d.name.toLowerCase() === name.toLowerCase())
-        return [...dogFound, ...getFoundDb];
-    } else return allDogs
+
+        allDogs = allDogs.filter(e => e.name.toLowerCase().includes(name.toLowerCase()));
+        // const rejex = new RegExp('(' + name + ')', 'gi'); // rejex = metodo para string
+        // const dogFound = await dogsApi.filter(({ name }) => name.match(rejex));
+        if(!allDogs.length) throw new Error("The dog doesn't exist")
+        return [ ...allDogs];
+
+    } else return allDogs;
 }
 
 
 
-
-
+const getById = async (idRaza) => {
+        const dog = await getAll();
+        let findDog = dog.find(d => d.id === parseInt(idRaza));
+        // if(!findDog) { findDog = await Dog.findOne({ where : { id }}) }
+        // findDog ?  res.status(200).send(findDog) : new Error('No dog found with that id');
+        if(findDog) return findDog;
+        else throw new Error('No dog found with that id');
+}
 
 
 
@@ -92,35 +127,60 @@ const postedDog = async (body) => {
             min_life_span, 
             max_life_span, 
             temperament} = body;
+
     const height = `${min_height}-${max_height}`;
-        const weight = `${min_weight}-${max_weight}`;
-        const life_span = `${min_life_span}-${max_life_span}`;
-        const id = (await getMaxId()) + 1;
+    const weight = `${min_weight}-${max_weight}`;
+    const life_span = `${min_life_span}-${max_life_span}`;
+    const id = (await getMaxId()) + 1;
 
         // hacer validacion 
-        if(!name || !height || !weight || !life_span) throw new Error('Fields are missing')
-        else {
-            const createDog = await Dog.create({
+    if(!name || !height || !weight || !life_span) throw new Error('Fields are missing');
+    else {
+        const createDog = await Dog.create({ 
+            
                 id,
                 name,
                 height,
                 weight,
-                life_span,
-            });
+                life_span,            
+        });
 
-
-            const findTemperament = await Temperament.findAll({
+        const findTemperament = await Temperament.findAll({
                 where: {name: temperament}
-            });
-            createDog.addTemperament(findTemperament);
+        });
+
+        createDog.addTemperament(findTemperament);
             
-            return createDog
-        }
+        return createDog;
+    }
 }
 
+
+const deletedDog = async (id) => {
+ 
+        let dog = await getAll();
+        dog = dog.filter(d => d.id !== parseInt(id))
+        // await Dog.destroy({ where: { id } })
+        // dog ? 'Dog was delete' : 'Dog not found';
+
+        return 'Dog was deleted';
+
+}
+
+const putDog = async (id, body) => {
+
+        const {name, min_height, max_height, min_weight, max_weight, max_life_span, min_life_span, temperament} = body;
+        // const dog = await getAll();
+        await Dog.update({name, min_height, max_height, min_weight, max_weight, max_life_span, min_life_span, temperament}, { where:{ id } });
+        return 'updated dog';
+
+}
 module.exports = {
     getApiInfo,
     getByQuery,
     postedDog,
-    getAll
+    getAll,
+    getById,
+    deletedDog,
+    putDog,
 }

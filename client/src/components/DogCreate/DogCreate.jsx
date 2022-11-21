@@ -21,10 +21,14 @@ const DogCreate = () => {
         temperament: [],
     })
 
+
+
+    //podria ser mejor pero es trabajo honesto 👉👈
     const validate = (input) => {
         const error = {}
 
         if(!input.name.length) error.name = 'The dog should have a name';
+        if(!isNaN(input.name)) error.name = 'Please use A-Z characters.'
         if(!input.min_height.length) error.min_height = 'The dog should have a min height';
         if(!input.max_height.length) error.max_height = 'The dog should have a max height';
         if(!input.min_weight.length) error.min_weight = 'The dog should have a min weight';

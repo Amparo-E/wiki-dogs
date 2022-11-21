@@ -21,12 +21,12 @@
 
 .pagination button:hover{
     border: .6px solid #101010;
-    background: #f7882f;
+    background: #E89F71;
 }
 
 .pagination button.active {
     font-weight: 900;
     border: .6px solid #101010;
-    background: #f7882f;
+    background: #E89F71;
     color: #101010;
 }

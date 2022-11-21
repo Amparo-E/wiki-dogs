@@ -5,7 +5,11 @@ let apiKey = 'live_FFCdYXabwlhHD0VND0xUzRa0zJTyXcvf7XxjCFSsCvvYd07s9dBt5JN0oLq0F
 
 const getTemperament = async () => {
     const getApiInfo = await axios(`https://api.thedogapi.com/v1/breeds?api_key=${apiKey}`);
-    const filteredTemp = getApiInfo.data.map(el => el.temperament).toString().split(',');
+    const filteredTemp = getApiInfo.data
+      .map(el => el.temperament)
+      .toString()
+      .split(',')
+      .map(e => e.trim());
    
     //  await filteredTemp
     //  .filter((t, i) => filteredTemp.indexOf(t) === i)
@@ -16,11 +20,13 @@ const getTemperament = async () => {
     //      })
     //  );
 
-    const tempers = [...new Set(filteredTemp)].map(e => {
+    const tempers = [...new Set(filteredTemp)]
+    .filter(e => {
+      return e.trim() !== '';
+    }).map(e => {
       return { name: e.trim() }
     });
 
-  
 
     const created = Temperament.bulkCreate(tempers)
     return created

@@ -1,4 +1,4 @@
-import { getDetail } from "../../redux/actions";
+import { getDetail, cleanDetail } from "../../redux/actions";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import Loading from "../Loading/Loading";
@@ -12,6 +12,10 @@ const CardDetail = (props) => {
     
     useEffect(() => {
          dispatch(getDetail(id));
+
+         return () => {
+            dispatch(cleanDetail())
+         }
     }, [dispatch, id]);
         
     if(!Object.keys(detail).length) return <Loading ready={false}></Loading>;

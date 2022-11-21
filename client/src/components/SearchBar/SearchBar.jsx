@@ -16,32 +16,44 @@ const SearchBar = () => {
         e.preventDefault()
         console.log(search) 
         dispatch(searchByName(search))
-        setSearch('');
+        //setSearch('');
     }
 
     const handleInput = (e) => {
-        setSearch(e.target.value)
-        
+        setSearch(e.target.value)        
+    }    
+
+    const handleInputKeyUp = (e) => {
+        if(e.key !== 'Enter') {
+            return;
+        }
+
+        dispatch(searchByName(search))
     }
 
-
-
-    
+    const handleClear = (e) => {
+        setSearch('');
+    }
 
     return (
         <>
             <nav className={style.search_box}>
                 <div>
                     <Link to='/create' className={style.title_menu}><h4>Create your dog</h4></Link>
-                    <Link to='/about' className={style.title_menu}><h4>About</h4></Link>
+                    {/* <Link to='/about' className={style.title_menu}><h4>About</h4></Link> */}
                     <Link to= '/home' className={style.title_menu}><h4>Home</h4></Link>
                 </div>
-                <div className={style.input}>
-                    <input  type="text" value={search} placeholder='Type to search...' onChange={handleInput}/>
+                <div className={style.input}>                
+                    <input onKeyUp={handleInputKeyUp}  type="text" value={search} placeholder='Type to search...' onChange={handleInput}/>
+                    {
+                        search.length > 0 
+                        ? <button onClick={handleClear} className={style.cancel_btn}>Clear</button>
+                        : <></>
+                    }
                     <button onClick={handleSubmit} className={style.search_btn}><ion-icon name="search-outline"></ion-icon></button>
                     {/* {
                     search 
-                    ? <button onClick={handleSubmit} className={style.cancel_btn}>X</button>
+                    ? 
                     : ''
                     }  */}
                 </div>

@@ -8,7 +8,7 @@ const router = Router();
 
 
 router.use('/dogs', dogsRouter);
-router.use('/temperaments', temperamentRouter)
+router.use('/temperaments', temperamentRouter);
 
 
 

@@ -7,6 +7,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+    background: #EDCFA9;
+}
+
 ::-webkit-scrollbar{
     width: 7px;
 }
@@ -17,7 +21,7 @@
 }
 
 .content_select {
-    background-color: rgb(238, 237, 169);
+    background-color: #D57149;
     height: 50px;
     width: 100%;
     display: flex;

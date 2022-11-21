@@ -37,10 +37,18 @@
 }
 
 
+
 .input_box label {
-    font-size: 20px;
+    font-size: 16px;
     display: block;
     font-weight: bold;
     font-size: italic;
     margin-block: 15px;
+}
+
+.input_box input {
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 3px;
 }

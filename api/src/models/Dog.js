@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
     // },
     image: {
       type: DataTypes.STRING,
-      defaultValue:'https://previews.123rf.com/images/danilobiancalana/danilobiancalana1211/danilobiancalana121100133/16534271-un-peque%C3%B1o-perro-confundido.jpg'
+      defaultValue: 'https://assets.puzzlefactory.pl/puzzle/376/321/original.jpg'
     }
   }, {timestamps: false});
 };
