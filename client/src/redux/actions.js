@@ -2,16 +2,13 @@ import {
     ERROR,
     GET_ALL_DOGS,
     GET_ALL_TEMPERAMENTS,
-    FILTER_TEMPERAMENTS,
-    FILTER_BREED,
-    ORDER_BY_NAME,
-    ORDER_BY_WEIGHT,
     CREATE_DOG,
     DELETE_DOG,
+    PUT_DOG,
     SHOW_DOG_DETAIL,
     SEARCH_BY_NAME,
     CLEAN_DETAIL,
-    DESDE_TODOS,
+    FROM_ALL,
     APPLY_FILTERS,
     SET_FILTER
 } from './types';
@@ -54,22 +51,6 @@ export const loadData = async (dispatch) => {
 }
 
 
-// ------------- ACTIONS PARA EL HOME -------------
-// export const filterTemperaments = (temperament) => { 
-//     return {type: FILTER_TEMPERAMENTS, payload: temperament}
-// }
-
-// export const filterBreed = (breed) => {
-//     return {type: FILTER_BREED, payload: breed}    
-// }
-
-// export const orderByName = (payload) => {
-//     return {type: ORDER_BY_NAME, payload }
-// }
-
-// export const orderByWeight = (payload) => {
-//     return {type: ORDER_BY_WEIGHT, payload}
-// }
 
 export const applyFilters = (payload) => {
     return { type: APPLY_FILTERS, payload }
@@ -79,8 +60,6 @@ export const setFilter = (payload) => {
     return { type: SET_FILTER, payload }
 }
 
-
-// ------------- ACTIONS PARA EL FROMULARIO -------------
 export const createDog = (payload) => { // {...}
     return async function(dispatch) {
         try {
@@ -95,7 +74,6 @@ export const createDog = (payload) => { // {...}
 }
 
 
-// ------------- ACTIONS PARA EL DETAIL -------------
 export const getDetail = (id) => {
     return async function(dispatch){
         try {
@@ -109,11 +87,17 @@ export const getDetail = (id) => {
     }
 }
 
-// ------------- ACTIONS PARA EL ELIMINAR -------------
 export const deleteDog = (id) => {
     return async function(dispatch){
         const deletedDog = await axios.delete(`http://localhost:3001/dogs/${id}`)
         return dispatch({type: DELETE_DOG, payload: deletedDog.data})
+    }
+}
+
+export const putDog = (id, info) => {
+    return async function(dispatch) {
+        const putedDog = await axios.put(`http://localhost:3001/dogs/${id}`, info)
+        return dispatch({type: PUT_DOG, payload: putedDog.data})
     }
 }
 
@@ -122,7 +106,6 @@ export const searchByName = (name) => {
     return async function(dispatch) {
         try {
             const searched = await axios(`http://localhost:3001/dogs?name=${name}`)
-            console.log(name) 
             return dispatch({type: SEARCH_BY_NAME, payload: searched.data})
         } catch (error) {
             return dispatch({type: ERROR, error});
@@ -130,7 +113,6 @@ export const searchByName = (name) => {
     }
 }
 
-// ------------- ACTIONS PARA LIMPIAR -------------
 export const cleanDetail = () => {
     return {type: CLEAN_DETAIL}
 }
@@ -138,7 +120,7 @@ export const cleanDetail = () => {
 export const selectInfo = (source) => {
     return async function (dispatch) {
         const info = await axios(`http://localhost:3001/dogs?source=${source}`)
-        return dispatch({type: DESDE_TODOS, payload: info.data})
+        return dispatch({type: FROM_ALL, payload: info.data})
     }
 }
 

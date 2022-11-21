@@ -14,10 +14,13 @@
     align-items: center;
     flex-direction: row;
     position: relative;
-    /* height: 10vh; */
     width:  100%;
     background-color: #D57149;
     padding: 10px 10px;
+    position: sticky;
+    top: 0;
+    box-shadow: 0px 0px .25em #000000;
+    z-index: 1;
 }
 
 .search_box .input {

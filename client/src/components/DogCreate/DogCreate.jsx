@@ -38,6 +38,7 @@ const DogCreate = () => {
         if(isNaN(input.min_height)) error.min_height = 'The dog height shoul be a number. Example "10-12"'
         
         if( input.min_height <= 0) error.min_height = 'the dog cannot have a height less than 0';
+        if( input.max_height > 120) error.max_height = 'The dog cannot be taller than 120';
         if(input.max_height > 120) error.max_height = 'the dog cannot be taller than 120cm';   
         
         return error
@@ -120,16 +121,6 @@ const DogCreate = () => {
                                 {error.max_height && <p className={style.error}>{error.max_height}</p>}
                         </div>
 
-                        {/* <div className={style.input_box}>
-                            <label htmlFor="max_height">Max height: </label>
-                            <input 
-                                type="text"
-                                name="max_height"
-                                value={input.max_height}
-                                onChange={handleChange}/>
-                                {error.max_height && <p>{error.max_height}</p>}
-                        </div> */}
-
                         <div className={style.input_box}>
                             <label htmlFor="min_weight">Weight: </label>
                             <input 
@@ -146,16 +137,6 @@ const DogCreate = () => {
                                 {error.max_weight && <p className={style.error}>{error.max_weight}</p>}
                         </div>
 
-                        {/* <div className={style.input_box}>
-                            <label htmlFor="max_weight">Max weight: </label>
-                            <input 
-                                type="text" 
-                                name="max_weight" 
-                                value={input.max_weight}
-                                onChange={handleChange}/>
-                                {error.max_weight && <p>{error.max_weight}</p>}
-                        </div> */}
-
                         <div className={style.input_box}>
                             <label htmlFor="max_life_span">Life: </label>
                             <input 
@@ -171,17 +152,6 @@ const DogCreate = () => {
                                 {error.min_life_span && <p className={style.error}>{error.min_life_span}</p>}
                                 {error.max_life_span && <p className={style.error}>{error.max_life_span}</p>}
                         </div>
-
-                        {/* <div className={style.input_box}>
-                            <label htmlFor="min_life_span">Max life: </label>
-                            <input 
-                            type="text" 
-                            name="max_life_span" 
-                            value={input.max_life_span}
-                            onChange={handleChange}/>
-                            {error.max_life_span && <p>{error.max_life_span}</p>}
-                        </div> */}
-
                     
                         <div className={style.form_select}>
                             <h4>Choise your temperament</h4>
@@ -192,10 +162,12 @@ const DogCreate = () => {
                             </select>
                         </div>
 
-                        {input.temperament?.map(el => <p>{el}</p>)}
-
-
-                        <button type="submit">Send</button>
+                        { input.temperament?.map(el => <p>{el}</p>) }
+                        
+                        { error.length 
+                        ? <button type="submit" disabled className={style.disabled}>Send</button> 
+                        : <button type="submit" className={style.button}>Send</button> }
+                        
 
                 </form>
 

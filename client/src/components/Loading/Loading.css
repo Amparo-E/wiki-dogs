@@ -1,7 +1,3 @@
-/* body {
-    background-color: rgba(0, 0, 0, .9);
-    color: white;
-} */
 
 .loading {
     position: fixed;
@@ -460,35 +456,35 @@
 
 @-webkit-keyframes first {
     0%, 39% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     40% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, -5px) rotate(0);
         -ms-transform: translate(0, -5px) rotate(0);
         transform: translate(0, -5px) rotate(0);
     }
 
     45%, 59% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     60% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, -5px) rotate(0);
         -ms-transform: translate(0, -5px) rotate(0);
         transform: translate(0, -5px) rotate(0);
     }
 
     65% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
@@ -497,35 +493,35 @@
 
 @-moz-keyframes first {
     0%, 39% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     40% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, -5px) rotate(0);
         -ms-transform: translate(0, -5px) rotate(0);
         transform: translate(0, -5px) rotate(0);
     }
 
     45%, 59% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     60% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, -5px) rotate(0);
         -ms-transform: translate(0, -5px) rotate(0);
         transform: translate(0, -5px) rotate(0);
     }
 
     65% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
@@ -534,35 +530,35 @@
 
 @-o-keyframes first {
     0%, 39% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     40% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, -5px) rotate(0);
         -ms-transform: translate(0, -5px) rotate(0);
         transform: translate(0, -5px) rotate(0);
     }
 
     45%, 59% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     60% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, -5px) rotate(0);
         -ms-transform: translate(0, -5px) rotate(0);
         transform: translate(0, -5px) rotate(0);
     }
 
     65% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
@@ -571,35 +567,35 @@
 
 @keyframes first {
     0%, 39% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     40% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, -5px) rotate(0);
         -ms-transform: translate(0, -5px) rotate(0);
         transform: translate(0, -5px) rotate(0);
     }
 
     45%, 59% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     60% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, -5px) rotate(0);
         -ms-transform: translate(0, -5px) rotate(0);
         transform: translate(0, -5px) rotate(0);
     }
 
     65% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
@@ -608,35 +604,35 @@
 
 @-webkit-keyframes fourth {
     0%, 39% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     40% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 5px) rotate(0);
         -ms-transform: translate(0, 5px) rotate(0);
         transform: translate(0, 5px) rotate(0);
     }
 
     45%, 59% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     60% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 5px) rotate(0);
         -ms-transform: translate(0, 5px) rotate(0);
         transform: translate(0, 5px) rotate(0);
     }
 
     65% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
@@ -645,35 +641,35 @@
 
 @-moz-keyframes fourth {
     0%, 39% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     40% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 5px) rotate(0);
         -ms-transform: translate(0, 5px) rotate(0);
         transform: translate(0, 5px) rotate(0);
     }
 
     45%, 59% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     60% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 5px) rotate(0);
         -ms-transform: translate(0, 5px) rotate(0);
         transform: translate(0, 5px) rotate(0);
     }
 
     65% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
@@ -682,35 +678,35 @@
 
 @-o-keyframes fourth {
     0%, 39% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     40% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 5px) rotate(0);
         -ms-transform: translate(0, 5px) rotate(0);
         transform: translate(0, 5px) rotate(0);
     }
 
     45%, 59% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     60% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 5px) rotate(0);
         -ms-transform: translate(0, 5px) rotate(0);
         transform: translate(0, 5px) rotate(0);
     }
 
     65% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
@@ -719,35 +715,35 @@
 
 @keyframes fourth {
     0%, 39% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     40% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 5px) rotate(0);
         -ms-transform: translate(0, 5px) rotate(0);
         transform: translate(0, 5px) rotate(0);
     }
 
     45%, 59% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     60% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 5px) rotate(0);
         -ms-transform: translate(0, 5px) rotate(0);
         transform: translate(0, 5px) rotate(0);
     }
 
     65% {
-        background: deepskyblue;
+        background: #FFFAD7;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
@@ -756,35 +752,35 @@
 
 @-webkit-keyframes second {
     0%, 19% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     20% {
-        background: yellow;
+        background: #E97777;
         -webkit-transform: translate(0, -5px) rotate(0);
         -ms-transform: translate(0, -5px) rotate(0);
         transform: translate(0, -5px) rotate(0);
     }
 
     25%, 79% {
-        background: yellow;
+        background: #E97777;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     80% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, -5px) rotate(0);
         -ms-transform: translate(0, -5px) rotate(0);
         transform: translate(0, -5px) rotate(0);
     }
 
     85% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
@@ -793,35 +789,35 @@
 
 @-moz-keyframes second {
     0%, 19% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     20% {
-        background: yellow;
+        background: #E97777;
         -webkit-transform: translate(0, -5px) rotate(0);
         -ms-transform: translate(0, -5px) rotate(0);
         transform: translate(0, -5px) rotate(0);
     }
 
     25%, 79% {
-        background: yellow;
+        background: #E97777;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     80% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, -5px) rotate(0);
         -ms-transform: translate(0, -5px) rotate(0);
         transform: translate(0, -5px) rotate(0);
     }
 
     85% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
@@ -830,35 +826,35 @@
 
 @-o-keyframes second {
     0%, 19% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     20% {
-        background: yellow;
+        background: #E97777;
         -webkit-transform: translate(0, -5px) rotate(0);
         -ms-transform: translate(0, -5px) rotate(0);
         transform: translate(0, -5px) rotate(0);
     }
 
     25%, 79% {
-        background: yellow;
+        background: #E97777;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     80% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, -5px) rotate(0);
         -ms-transform: translate(0, -5px) rotate(0);
         transform: translate(0, -5px) rotate(0);
     }
 
     85% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
@@ -867,35 +863,35 @@
 
 @keyframes second {
     0%, 19% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     20% {
-        background: yellow;
+        background: #E97777;
         -webkit-transform: translate(0, -5px) rotate(0);
         -ms-transform: translate(0, -5px) rotate(0);
         transform: translate(0, -5px) rotate(0);
     }
 
     25%, 79% {
-        background: yellow;
+        background: #E97777;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     80% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, -5px) rotate(0);
         -ms-transform: translate(0, -5px) rotate(0);
         transform: translate(0, -5px) rotate(0);
     }
 
     85% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
@@ -904,35 +900,35 @@
 
 @-webkit-keyframes third {
     0%, 19% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     20% {
-        background: yellow;
+        background: #E97777;
         -webkit-transform: translate(0, 5px) rotate(0);
         -ms-transform: translate(0, 5px) rotate(0);
         transform: translate(0, 5px) rotate(0);
     }
 
     25%, 79% {
-        background: yellow;
+        background: #E97777;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     80% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 5px) rotate(0);
         -ms-transform: translate(0, 5px) rotate(0);
         transform: translate(0, 5px) rotate(0);
     }
 
     85% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
@@ -941,35 +937,35 @@
 
 @-moz-keyframes third {
     0%, 19% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     20% {
-        background: yellow;
+        background: #E97777;
         -webkit-transform: translate(0, 5px) rotate(0);
         -ms-transform: translate(0, 5px) rotate(0);
         transform: translate(0, 5px) rotate(0);
     }
 
     25%, 79% {
-        background: yellow;
+        background: #E97777;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     80% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 5px) rotate(0);
         -ms-transform: translate(0, 5px) rotate(0);
         transform: translate(0, 5px) rotate(0);
     }
 
     85% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
@@ -978,35 +974,35 @@
 
 @-o-keyframes third {
     0%, 19% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     20% {
-        background: yellow;
+        background: #E97777;
         -webkit-transform: translate(0, 5px) rotate(0);
         -ms-transform: translate(0, 5px) rotate(0);
         transform: translate(0, 5px) rotate(0);
     }
 
     25%, 79% {
-        background: yellow;
+        background: #E97777;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     80% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 5px) rotate(0);
         -ms-transform: translate(0, 5px) rotate(0);
         transform: translate(0, 5px) rotate(0);
     }
 
     85% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
@@ -1015,35 +1011,35 @@
 
 @keyframes third {
     0%, 19% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     20% {
-        background: yellow;
+        background: #E97777;
         -webkit-transform: translate(0, 5px) rotate(0);
         -ms-transform: translate(0, 5px) rotate(0);
         transform: translate(0, 5px) rotate(0);
     }
 
     25%, 79% {
-        background: yellow;
+        background: #E97777;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
 
     80% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 5px) rotate(0);
         -ms-transform: translate(0, 5px) rotate(0);
         transform: translate(0, 5px) rotate(0);
     }
 
     85% {
-        background: red;
+        background: #FCDDB0;
         -webkit-transform: translate(0, 0) rotate(0);
         -ms-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
@@ -1052,89 +1048,89 @@
 
 @-webkit-keyframes main {
     0%, 19% {
-        background: yellow;
+        background: #E97777;
     }
 
     20%, 39% {
-        background: red;
+        background: #FCDDB0;
     }
 
     40%, 59% {
-        background: deepskyblue;
+        background: #FFFAD7;
     }
 
     60%, 79% {
-        background: red;
+        background: #FCDDB0;
     }
 
     80% {
-        background: yellow;
+        background: #E97777;
     }
 }
 
 @-moz-keyframes main {
     0%, 19% {
-        background: yellow;
+        background: #E97777;
     }
 
     20%, 39% {
-        background: red;
+        background: #FCDDB0;
     }
 
     40%, 59% {
-        background: deepskyblue;
+        background: #FFFAD7;
     }
 
     60%, 79% {
-        background: red;
+        background: #FCDDB0;
     }
 
     80% {
-        background: yellow;
+        background: #E97777;
     }
 }
 
 @-o-keyframes main {
     0%, 19% {
-        background: yellow;
+        background: #E97777;
     }
 
     20%, 39% {
-        background: red;
+        background: #FCDDB0;
     }
 
     40%, 59% {
-        background: deepskyblue;
+        background: #FFFAD7;
     }
 
     60%, 79% {
-        background: red;
+        background: #FCDDB0;
     }
 
     80% {
-        background: yellow;
+        background: #E97777;
     }
 }
 
 @keyframes main {
     0%, 19% {
-        background: yellow;
+        background: #E97777;
     }
 
     20%, 39% {
-        background: red;
+        background: #FCDDB0;
     }
 
     40%, 59% {
-        background: deepskyblue;
+        background: #FFFAD7;
     }
 
     60%, 79% {
-        background: red;
+        background: #FCDDB0;
     }
 
     80% {
-        background: yellow;
+        background: #E97777;
     }
 }
 
@@ -1167,7 +1163,7 @@
             height: 12px;
             margin: -6px -6px;
             border-radius: 50%;
-            background: yellow;
+            background: #E97777;
             box-shadow: 0 0 2px #000;
         }
 
@@ -1212,22 +1208,22 @@
 
             .loader-container .outer .inner .small:nth-child(1) {
                 left: 0%;
-                background: deepskyblue;
+                background: #FFFAD7;
             }
 
             .loader-container .outer .inner .small:nth-child(2) {
                 left: 33.3333333333%;
-                background: red;
+                background: #FCDDB0;
             }
 
             .loader-container .outer .inner .small:nth-child(3) {
                 left: 66.6666666667%;
-                background: red;
+                background: #FCDDB0;
             }
 
             .loader-container .outer .inner .small:nth-child(4) {
                 left: 100%;
-                background: deepskyblue;
+                background: #FFFAD7;
             }
 
             .loader-container .outer .inner .small:nth-child(1) {

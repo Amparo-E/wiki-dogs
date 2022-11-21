@@ -13,28 +13,24 @@ const HomePage = () => {
 
     useEffect(() => {
         dispatch(loadData);
-    }, []);
+    }, [dispatch]);
     
     const allDogs = useSelector(state => state.dogs);
     const dogsFiltereds = useSelector(state => state.dogFiltered);
     const allTemperaments = useSelector(state => state.temperaments);
     const filters = useSelector(state => state.filters);
 
+
     const [currentPage, setCurrentPage] = useState(1);
     const [postPerPage, setpostPerPage] = useState(8);
     const lastPostIndex = currentPage * postPerPage;
     const firstPostIndex = lastPostIndex - postPerPage;
-    const currentPost = dogsFiltereds.slice(firstPostIndex, lastPostIndex);
+    
+    const currentPost = dogsFiltereds.length
+    ? dogsFiltereds.slice(firstPostIndex, lastPostIndex)
+    : allDogs.slice(firstPostIndex, lastPostIndex)
 
-    // const paginadio = () => {
-    //     return dogs.slice((currentPage*2)-12, currentPage+12)
-    // }
 
-    //Paginado.map...
-
-    // const prueba = filtrados.length? filtro.slice((currentPage*2)-12, currentPage+12):perrosSinFiltrar.slice((currentPage*2)-12, currentPage+12)
-
-    // ---------- los puedo meter en una funcion y ponerle condicionales
     const handleFilterByTemperament  = (e) => {
         e.preventDefault()
         dispatch(setFilter({ name: 'temperament', value: e.target.value }));
@@ -47,8 +43,6 @@ const HomePage = () => {
         dispatch(setFilter({ name: 'breed', value: e.target.value }));
         dispatch(applyFilters());
     }
-
-
 
     const handleInfo = async (e) => {
         e.preventDefault();
@@ -95,7 +89,7 @@ const HomePage = () => {
             </div>
 
 
-            {!currentPost.length > 0 
+            { !currentPost.length
             ? ( <Loading ready={false}/> )
             : (
                 <div className={style.content_cards}>

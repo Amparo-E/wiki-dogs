@@ -27,6 +27,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: inset 0px 0px .25em #888888;
+
 }
 
 .select_box {

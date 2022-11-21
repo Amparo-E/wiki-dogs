@@ -158,20 +158,38 @@ const postedDog = async (body) => {
 
 const deletedDog = async (id) => {
  
-        let dog = await getAll();
-        dog = dog.filter(d => d.id !== parseInt(id))
-        // await Dog.destroy({ where: { id } })
-        // dog ? 'Dog was delete' : 'Dog not found';
-
-        return 'Dog was deleted';
+        // let dog = await getFromDb();
+        const dog = await Dog.destroy({
+            where: { id}
+        })
+        
+        !dog.length ? 'Dog not found': 'Dog was delete' ; 
 
 }
 
 const putDog = async (id, body) => {
 
-        const {name, min_height, max_height, min_weight, max_weight, max_life_span, min_life_span, temperament} = body;
-        // const dog = await getAll();
-        await Dog.update({name, min_height, max_height, min_weight, max_weight, max_life_span, min_life_span, temperament}, { where:{ id } });
+        const {
+            name, 
+            min_height,
+            max_height, 
+            min_weight, 
+            max_weight, 
+            max_life_span, 
+            min_life_span, 
+            temperament
+        } = body;
+        await Dog.update({name, 
+            min_height, 
+            max_height, 
+            min_weight, 
+            max_weight, 
+            max_life_span, 
+            min_life_span, 
+            temperament
+        }, { 
+            where: { id } 
+        });
         return 'updated dog';
 
 }

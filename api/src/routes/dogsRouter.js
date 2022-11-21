@@ -55,7 +55,6 @@ router.delete('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
-        
         const { id } = req.params;
         const updateDog = await putDog(id, req.body)
         res.status(200).send(updateDog)

@@ -23,13 +23,22 @@
 }
 
 
-.container_form button {
+.container_form .button {
     width: 80px;
     height: 25px;
     border: none;
     border-radius: 5px;
     background-color: #f7882f;
     margin-bottom: 17px;
+}
+
+.container_form .disabled {width: 80px;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: #878787;
+    margin-bottom: 17px;
+    
 }
 
 .container_form .form_select {

@@ -2,18 +2,15 @@ import {
     ERROR,
     GET_ALL_DOGS,
     GET_ALL_TEMPERAMENTS,
-    FILTER_TEMPERAMENTS,
-    FILTER_BREED,
-    ORDER_BY_NAME,
-    ORDER_BY_WEIGHT,
     CREATE_DOG,
     DELETE_DOG,
     SHOW_DOG_DETAIL,
     SEARCH_BY_NAME,
     CLEAN_DETAIL,
-    DESDE_TODOS,
+    FROM_ALL,
     APPLY_FILTERS,
-    SET_FILTER
+    SET_FILTER,
+    PUT_DOG
 } from './types';
 
 // dogs para todo
@@ -26,7 +23,7 @@ const initialState = {
     dogFiltered: [],
     dogsFromSource: [],
     dogDetail: {},
-    error: {},
+    error: '',
     filters: {
         temperament: '',
         breed: '',
@@ -69,7 +66,9 @@ const rootReducer = (state = initialState, action) => {
                         break;
                     case 'breed':
                         filteredDogs = value === '' ? filteredDogs : filteredDogs.filter(d => d.name?.includes(value));
-                        break;                    
+                        break;      
+                    default: 
+                        break;              
                 }
             }
 
@@ -90,28 +89,21 @@ const rootReducer = (state = initialState, action) => {
                     break;
                 case 'MIN-MAX':
                 case 'MAX-MIN':
-                    // filteredDogs = filteredDogs.sort((a, b) => {
-                    //     a = a.weight.split(' - ')
-                    //     b = b.weight.split(' - ')
-
-                    //     const left = (a[0] + a[1]) / 2;
-                    //     const right = (b[0] + b[1]) / 2;
-
-                    //     return state.filters.order === 'MIN-MAX' ? left > right : right > left;
-                    // });
 
                     filteredDogs = state.filters.order === 'MIN-MAX' 
                     ? filteredDogs.sort((a, b) => {
                         a = a.weight.split(' - ')
                         b = b.weight.split(' - ')
-                        // return (a[0] + a[1]) / 2 - (b[0] + b[1]) / 2;
-                        return a[1] - b[1]
+                        return a[0] - b[0]
                     }) 
                     : filteredDogs.sort((a, b) => {
                         a = a.weight.split(' - ')
                         b = b.weight.split(' - ')
                         return b[1] - a[1];
                     });
+                    break;
+
+                default:
                     break;
             }        
 
@@ -127,10 +119,13 @@ const rootReducer = (state = initialState, action) => {
             const deleteDogs = allDogs.filter(dog => dog.id !== action.payload);
             return {...state, dogs: deleteDogs};
 
+        case PUT_DOG: 
+            return {...state, dogDetail: action.payload}
+
         case CLEAN_DETAIL:
             return {...state, dogDetail: {}}
         
-        case DESDE_TODOS:
+        case FROM_ALL:
             if(action.payload === 'All') return {...state, dogsFromSource: state.dogs}
             else return {...state, dogsFromSource: action.payload}            
         default:

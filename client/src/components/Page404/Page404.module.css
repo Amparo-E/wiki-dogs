@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+.content {
+    height: 100vh;
+    background: url(../../assets/portrait-lovely-dog-looking-away.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 100px;
+    color: #fff;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.content h3 {
+    font-size: 180px;
+    color: #000;
+    transform: translate3d(65%, -50%, 0);
+    z-index: 1;
+}
