@@ -62,17 +62,15 @@ export const setFilter = (payload) => {
 
 export const createDog = (payload) => { // {...}
     return async function(dispatch) {
-        try {
-            
+        try {            
             const postDog = await axios.post('http://localhost:3001/dogs', payload); // {...}
             return dispatch({type: CREATE_DOG, payload: postDog.data.payload})
 
         } catch (error) {
-            return dispatch({type: ERROR, error});
+            return dispatch({type: ERROR, error: error.response.data.message});
         }
     }
 }
-
 
 export const getDetail = (id) => {
     return async function(dispatch){
@@ -101,14 +99,13 @@ export const putDog = (id, info) => {
     }
 }
 
-
 export const searchByName = (name) => {
     return async function(dispatch) {
         try {
-            const searched = await axios(`http://localhost:3001/dogs?name=${name}`)
+            const searched = await axios(`http://localhost:3001/dogs?name=${name}`);            
             return dispatch({type: SEARCH_BY_NAME, payload: searched.data})
         } catch (error) {
-            return dispatch({type: ERROR, error});
+            return dispatch({type: ERROR, error: error.code === 'ERR_BAD_REQUEST' ? `No items found for the search term ${name}`: error.message});
         }
     }
 }
@@ -124,4 +121,6 @@ export const selectInfo = (source) => {
     }
 }
 
-
+export const setErrorMessage = (payload) => {
+    return {type: ERROR, payload};
+}

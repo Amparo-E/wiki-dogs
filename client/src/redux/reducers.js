@@ -36,14 +36,13 @@ const rootReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ERROR: 
-        return {...state, error: action.error}
+            return {...state, error: action.error}
         case GET_ALL_DOGS:
-            return {...state, dogs: action.payload, dogFiltered: action.payload, dogsFromSource: action.payload };
+            return {...state, dogs: action.payload, dogFiltered: action.payload, dogsFromSource: action.payload, error: '' };
         case GET_ALL_TEMPERAMENTS:
-            return {...state, temperaments: action.payload};
+            return {...state, temperaments: action.payload, error: ''};
         case SEARCH_BY_NAME:
-            return {...state, dogFiltered: action.payload};
-            
+            return {...state, dogFiltered: action.payload, error: ''};            
         case SET_FILTER:
             let value = action.payload;
             let filters = {};
@@ -113,14 +112,14 @@ const rootReducer = (state = initialState, action) => {
             return {...state, dogDetail: action.payload};
         
         case CREATE_DOG:
-            return {...state, dogs: [...state.dogs, action.payload]};
+            return {...state, dogs: [...state.dogs, action.payload], error: ''};
 
         case DELETE_DOG:
             const deleteDogs = allDogs.filter(dog => dog.id !== action.payload);
             return {...state, dogs: deleteDogs};
 
         case PUT_DOG: 
-            return {...state, dogDetail: action.payload}
+            return {...state, dogDetail: action.payload, error: ''}
 
         case CLEAN_DETAIL:
             return {...state, dogDetail: {}}

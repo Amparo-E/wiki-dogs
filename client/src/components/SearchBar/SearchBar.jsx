@@ -4,29 +4,37 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import style from './SearchBar.module.css'
 
-const SearchBar = () => {
+const SearchBar = (props) => {
     const dispatch = useDispatch();
     const [search, setSearch] = useState('');
 
-    useEffect(() => {
-        dispatch(getDogs())
-    }, [dispatch])
+    const isReady = (value) => {
+        if(props.isReady) {
+            props.isReady(value);
+        }
+    }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        dispatch(searchByName(search))
+        
+        isReady(false);
+        await dispatch(searchByName(search))
+        isReady(true);
     }
 
     const handleInput = (e) => {
-        setSearch(e.target.value)        
+        isReady(false);
+        setSearch(e.target.value);
+        isReady(true);
     }    
 
-    const handleInputKeyUp = (e) => {
+    const handleInputKeyUp = async (e) => {
         if(e.key !== 'Enter') {
             return;
         }
-
-        dispatch(searchByName(search))
+        isReady(false);
+        await dispatch(searchByName(search))
+        isReady(true);
     }
 
     const handleClear = (e) => {

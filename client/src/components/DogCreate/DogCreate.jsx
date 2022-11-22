@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createDog, getTemperaments } from "../../redux/actions";
+import { createDog, getTemperaments, setErrorMessage } from "../../redux/actions";
 import SearchBar from "../SearchBar/SearchBar";
+import ErrorHandler from "../ErrorHandler/ErrorHandler";
 import style from './DogCreate.module.css';
 import { validate } from "./controllerDogCreate";
 
@@ -26,7 +27,10 @@ const DogCreate = () => {
     
 
     useEffect(() => {
+        dispatch(setErrorMessage(''));
         dispatch(getTemperaments())
+        setError(validate(input))
+        //   ^
         handleValidations();
     }, [dispatch,input])
 
@@ -40,6 +44,10 @@ const DogCreate = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if( !Object.keys(error).length ){
+
+            if(input.image === '') {
+                input.image = imageUrl;
+            }
 
             dispatch(createDog(input));
 
@@ -75,7 +83,7 @@ const DogCreate = () => {
     
 
     return (
-        <>
+        <ErrorHandler>
         <SearchBar />
             <div className={style.content}>
             
@@ -170,9 +178,8 @@ const DogCreate = () => {
                         
 
                 </form>
-
             </div> 
-        </>
+        </ErrorHandler>
     )
 }
 

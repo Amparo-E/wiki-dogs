@@ -31,6 +31,14 @@ body {
 
 }
 
+.content_filters {
+    padding: .5em;
+}
+
+.content_filters > input {
+    margin: .5em;
+}
+
 .select_box {
     margin: 5px;
     height: 30px;

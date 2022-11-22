@@ -7,20 +7,26 @@ import SearchBar from '../SearchBar/SearchBar';
 import Loading  from '../Loading/Loading'
 import Pagination from "../pagination/Pagination";
 import style from './HomePage.module.css'
+import { read } from "fs";
 
 const HomePage = () => {
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(loadData);
-    }, [dispatch]);
-    
     const allDogs = useSelector(state => state.dogs);
+    const error = useSelector(state => state.error);
     const dogsFiltereds = useSelector(state => state.dogFiltered);
     const allTemperaments = useSelector(state => state.temperaments);
     const filters = useSelector(state => state.filters);
 
+    useEffect(() => {
+        dispatch(loadData);
 
+        if(allDogs.length > 0) {
+            setReady(true);
+        }
+    }, [allDogs.length]);
+
+    const [getReady, setReady] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [postPerPage, setpostPerPage] = useState(8);
     const lastPostIndex = currentPage * postPerPage;
@@ -30,6 +36,9 @@ const HomePage = () => {
     ? dogsFiltereds.slice(firstPostIndex, lastPostIndex)
     : allDogs.slice(firstPostIndex, lastPostIndex)
 
+    const isReady = (value) => {
+        setReady(value);
+    };
 
     const handleFilterByTemperament  = (e) => {
         e.preventDefault()
@@ -59,9 +68,19 @@ const HomePage = () => {
 
     //-----------------------------------------
 
+    const DisplayError = ({ error, children }) => {
+        if(error === '') {
+            return <>{ children }</>
+        }
+
+        return (
+            <h1>{error}</h1>
+        )
+    }
+
     return (
         <>
-            <SearchBar/>
+            <SearchBar isReady={isReady}/>
 
             <div className={style.content_select}>                
                 <select onChange={handleFilterByTemperament} className={style.select_box}>
@@ -74,7 +93,7 @@ const HomePage = () => {
                     {allDogs?.map(dog => dog !== undefined ? <option value={dog.name}>{dog.name}</option> : <></>)}
                 </select>
 
-                <div onChange={handleChangeOrder} className={style.select_box}>
+                <div onChange={handleChangeOrder} className={style.content_filters}>
                     <input type="radio" name="filters" value="A-Z" checked={filters.order === 'A-Z'}/> A-Z
                     <input type="radio" name="filters" value="Z-A" checked={filters.order === 'Z-A'}/> Z-A
                     <input type="radio" name="filters" value="MIN-MAX" checked={filters.order === 'MIN-MAX'}/> MIN-MAX
@@ -88,32 +107,33 @@ const HomePage = () => {
                 </select>
             </div>
 
+            <DisplayError error={error}>
+                <Loading ready={getReady}>
+                    {
+                        <div className={style.content_cards}>
+                            {currentPost?.map((dog, index) => <Card id={dog.id} 
+                                                                    name={dog.name} 
+                                                                    image={dog.image} 
+                                                                    temperament={dog.temperament} 
+                                                                    weight={dog.weight}
+                                                                    key={index}
+                                                                    />
+                                                                    )}
+                        </div>
+                    }
 
-            { !currentPost.length
-            ? ( <Loading ready={false}/> )
-            : (
-                <div className={style.content_cards}>
-                    {currentPost?.map((dog, index) => <Card id={dog.id} 
-                                                            name={dog.name} 
-                                                            image={dog.image} 
-                                                            temperament={dog.temperament} 
-                                                            weight={dog.weight}
-                                                            key={index}
-                                                            />
-                                                            )}
-                </div>
-            )}
 
+                    <div> 
+                        <Pagination 
+                            totalPost={dogsFiltereds.length} 
+                            postPerPage={postPerPage} 
+                            setCurrentPage={setCurrentPage} 
+                            currentPage={currentPage}
+                        />
+                    </div>
 
-            <div> 
-                <Pagination 
-                    totalPost={dogsFiltereds.length} 
-                    postPerPage={postPerPage} 
-                    setCurrentPage={setCurrentPage} 
-                    currentPage={currentPage}
-                />
-            </div>
-
+                </Loading>
+            </DisplayError>
         </>
     )
 }
