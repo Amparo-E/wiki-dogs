@@ -24,9 +24,13 @@
     background: #E89F71;
 }
 
-.pagination button.active {
+.pagination .active {
     font-weight: 900;
     border: .6px solid #101010;
     background: #E89F71;
     color: #101010;
+}
+
+.pagination .handles {
+    width: 50px;
 }

@@ -7,7 +7,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import Loading  from '../Loading/Loading'
 import Pagination from "../pagination/Pagination";
 import style from './HomePage.module.css'
-import { read } from "fs";
+
 
 const HomePage = () => {
     const dispatch = useDispatch();
@@ -18,6 +18,8 @@ const HomePage = () => {
     const allTemperaments = useSelector(state => state.temperaments);
     const filters = useSelector(state => state.filters);
 
+    const [getReady, setReady] = useState(false);
+
     useEffect(() => {
         dispatch(loadData);
 
@@ -26,9 +28,9 @@ const HomePage = () => {
         }
     }, [allDogs.length]);
 
-    const [getReady, setReady] = useState(false);
+
     const [currentPage, setCurrentPage] = useState(1);
-    const [postPerPage, setpostPerPage] = useState(8);
+    const postPerPage = 8;
     const lastPostIndex = currentPage * postPerPage;
     const firstPostIndex = lastPostIndex - postPerPage;
     
@@ -66,11 +68,12 @@ const HomePage = () => {
         dispatch(applyFilters());
     }
 
-    //-----------------------------------------
+    
 
     const DisplayError = ({ error, children }) => {
         if(error === '') {
             return <>{ children }</>
+            
         }
 
         return (
@@ -124,12 +127,14 @@ const HomePage = () => {
 
 
                     <div> 
-                        <Pagination 
+                        
+                         <Pagination 
                             totalPost={dogsFiltereds.length} 
                             postPerPage={postPerPage} 
                             setCurrentPage={setCurrentPage} 
                             currentPage={currentPage}
-                        />
+                        /> 
+                        
                     </div>
 
                 </Loading>

@@ -28,21 +28,18 @@ const DogCreate = () => {
 
     useEffect(() => {
         dispatch(setErrorMessage(''));
-        dispatch(getTemperaments())
-        setError(validate(input))
-        //   ^
+        dispatch(getTemperaments());
         handleValidations();
-    }, [dispatch,input])
+    }, [dispatch,input]);
 
 
     const handleValidations = async () => {
         let res = await validate(input);
-
         setError(res);        
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         if( !Object.keys(error).length ){
 
             if(input.image === '') {
@@ -62,23 +59,23 @@ const DogCreate = () => {
             max_life_span: '',
             min_life_span: '',
             temperament: [],
-            image: ''
+            image: '',
         })
     }
 
     const handleChange = (e) => {
         setInput({
             ...input,
-            [e.target.name]: e.target.value
-        })
+            [e.target.name]: e.target.value,
+        });
     }
 
 
     const tempOptions = (e) => {
         setInput({
             ...input,
-            temperament: [...input.temperament, e.target.value]
-        })
+            temperament: [...input.temperament, e.target.value],
+        });
     }
     
 
@@ -97,7 +94,8 @@ const DogCreate = () => {
                                 type="text" 
                                 name="name" 
                                 value={input.name}
-                                onChange={handleChange}/>
+                                onChange={handleChange}
+                                placeholder="Breed"/>
                                 {error.name && <p className={style.error}>{error.name}</p>}
                         </div>
 
@@ -107,12 +105,14 @@ const DogCreate = () => {
                                 type="text"
                                 name="min_height"
                                 value={input.min_height}
-                                onChange={handleChange}/>
+                                onChange={handleChange}
+                                placeholder="Min height"/>
                             <input 
                                 type="text"
                                 name="max_height"
                                 value={input.max_height}
-                                onChange={handleChange}/>
+                                onChange={handleChange}
+                                placeholder="Max height"/>
                                 {error.min_height && <p className={style.error}>{error.min_height}</p>}
                                 {error.max_height && <p className={style.error}>{error.max_height}</p>}
                         </div>
@@ -123,12 +123,14 @@ const DogCreate = () => {
                                 type="text" 
                                 name="min_weight" 
                                 value={input.min_weight}
-                                onChange={handleChange}/>
+                                onChange={handleChange}
+                                placeholder="Min weight"/>
                             <input 
                                 type="text" 
                                 name="max_weight" 
                                 value={input.max_weight}
-                                onChange={handleChange}/>
+                                onChange={handleChange}
+                                placeholder="Max weight"/>
                                 {error.min_weight && <p className={style.error}>{error.min_weight}</p>}
                                 {error.max_weight && <p className={style.error}>{error.max_weight}</p>}
                         </div>
@@ -139,12 +141,14 @@ const DogCreate = () => {
                                 type="text" 
                                 name="min_life_span" 
                                 value={input.min_life_span}
-                                onChange={handleChange}/>
+                                onChange={handleChange}
+                                placeholder="Min life"/>
                             <input 
                                 type="text" 
                                 name="max_life_span" 
                                 value={input.max_life_span}
-                                onChange={handleChange}/>
+                                onChange={handleChange}
+                                placeholder="Max life"/>
                                 {error.min_life_span && <p className={style.error}>{error.min_life_span}</p>}
                                 {error.max_life_span && <p className={style.error}>{error.max_life_span}</p>}
                         </div>
@@ -155,7 +159,8 @@ const DogCreate = () => {
                                 type="text" 
                                 name="image" 
                                 value={input.image}
-                                onChange={handleChange}/>
+                                onChange={handleChange}
+                                placeholder="URL image"/>
                                 {error.image && <p className={style.error}>{error.image}</p>}
                         </div>
                     
@@ -175,7 +180,6 @@ const DogCreate = () => {
                         ? <button type="submit" className={style.button}>Send</button> 
                         : <button type="submit" disabled className={style.disabled}>Send</button> 
                          }
-                        
 
                 </form>
             </div> 

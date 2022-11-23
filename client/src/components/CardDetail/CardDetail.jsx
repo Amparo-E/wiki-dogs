@@ -1,4 +1,4 @@
-import { getDetail, cleanDetail, deleteDog, putDog } from "../../redux/actions";
+import { getDetail, cleanDetail, deleteDog } from "../../redux/actions";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import Loading from "../Loading/Loading";

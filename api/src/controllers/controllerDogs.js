@@ -96,9 +96,7 @@ const getByQuery = async (name, source) => {
     if(name) {
 
         allDogs = allDogs.filter(e => e.name.toLowerCase().includes(name.toLowerCase()));
-        // const rejex = new RegExp('(' + name + ')', 'gi'); // rejex = metodo para string
-        // const dogFound = await dogsApi.filter(({ name }) => name.match(rejex));
-        if(!allDogs.length) throw new Error("The dog doesn't exist")
+        if(!allDogs.length) throw new Error("The dog doesn't exist");
         return [ ...allDogs];
 
     } else return allDogs;
@@ -163,7 +161,6 @@ const deletedDog = async (id) => {
         const dog = await Dog.destroy({
             where: { id}
         })
-        
         !dog.length ? 'Dog not found': 'Dog was delete' ; 
 
 }

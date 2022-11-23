@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { getDogs, searchByName } from "../../redux/actions";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { searchByName } from "../../redux/actions";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import style from './SearchBar.module.css'
 
 const SearchBar = (props) => {
