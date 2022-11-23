@@ -10,8 +10,8 @@ import style from './HomePage.module.css'
 
 
 const HomePage = () => {
+    
     const dispatch = useDispatch();
-
     const allDogs = useSelector(state => state.dogs);
     const error = useSelector(state => state.error);
     const dogsFiltereds = useSelector(state => state.dogFiltered);
@@ -34,7 +34,7 @@ const HomePage = () => {
     const lastPostIndex = currentPage * postPerPage;
     const firstPostIndex = lastPostIndex - postPerPage;
     
-    const currentPost = dogsFiltereds.length
+    const currentPost = dogsFiltereds.length > 0
     ? dogsFiltereds.slice(firstPostIndex, lastPostIndex)
     : allDogs.slice(firstPostIndex, lastPostIndex)
 
@@ -57,9 +57,7 @@ const HomePage = () => {
 
     const handleInfo = async (e) => {
         e.preventDefault();
-
         await dispatch(selectInfo(e.target.value));
-
         dispatch(applyFilters());
     }
 

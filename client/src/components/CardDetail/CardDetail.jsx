@@ -6,6 +6,7 @@ import style from './CardDetail.module.css'
 import SearchBar from "../SearchBar/SearchBar";
 
 const CardDetail = (props) => {
+
     const { id } = props.match.params;
     const dispatch = useDispatch();
     const detail = useSelector(state => state.dogDetail)

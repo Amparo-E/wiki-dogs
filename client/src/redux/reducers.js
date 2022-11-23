@@ -13,10 +13,6 @@ import {
     PUT_DOG
 } from './types';
 
-// dogs para todo
-// tmeperaments para todo
-// dogDetail solo para el detail
-
 const initialState = {
     dogs: [], 
     temperaments: [],
@@ -36,21 +32,22 @@ const rootReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ERROR: 
-            return {...state, error: action.error}
+            return {...state, error: action.error};
+
         case GET_ALL_DOGS:
             return {...state, dogs: action.payload, dogFiltered: action.payload, dogsFromSource: action.payload, error: '' };
+
         case GET_ALL_TEMPERAMENTS:
             return {...state, temperaments: action.payload, error: ''};
+
         case SEARCH_BY_NAME:
-            return {...state, dogFiltered: action.payload, error: ''};            
+            return {...state, dogFiltered: action.payload, error: ''};     
+
         case SET_FILTER:
-            let value = action.payload;
+            let value = action.payload; 
             let filters = {};
 
-            Object.assign(filters, state.filters);
-
             filters[value.name] = value.value;
-
             return {...state, filters: filters };    
 
         case APPLY_FILTERS:            
@@ -85,6 +82,7 @@ const rootReducer = (state = initialState, action) => {
                         if(a.name.toUpperCase() > b.name.toUpperCase())return -1
                         return 0
                       });
+
                     break;
                 case 'MIN-MAX':
                 case 'MAX-MIN':

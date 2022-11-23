@@ -52,18 +52,18 @@ export const loadData = async (dispatch) => {
 
 
 
-export const applyFilters = (payload) => {
-    return { type: APPLY_FILTERS, payload }
+export const applyFilters = () => {
+    return { type: APPLY_FILTERS }
 }
 
 export const setFilter = (payload) => {
     return { type: SET_FILTER, payload }
 }
 
-export const createDog = (payload) => { // {...}
+export const createDog = (payload) => { 
     return async function(dispatch) {
         try {            
-            const postDog = await axios.post('http://localhost:3001/dogs', payload); // {...}
+            const postDog = await axios.post('http://localhost:3001/dogs', payload); 
             return dispatch({type: CREATE_DOG, payload: postDog.data.payload})
 
         } catch (error) {
