@@ -132,18 +132,17 @@ const postedDog = async (body) => {
     const life_span = `${min_life_span}-${max_life_span}`;
     const id = (await getMaxId()) + 1;
 
-        // hacer validacion 
+
     if(!name || !height || !weight || !life_span) throw new Error('Fields are missing');
     else {
         const createDog = await Dog.create({ 
-            
                 id,
                 name,
                 height,
                 weight,
                 life_span,
                 image            
-        });
+            });
 
         const findTemperament = await Temperament.findAll({
                 where: {name: temperament}
