@@ -28,12 +28,12 @@ const SearchBar = (props) => {
         isReady(true);
     }    
 
-    const handleInputKeyUp = async (e) => {
+    const handleInputKeyUp = (e) => {
         if(e.key !== 'Enter') {
             return;
         }
         isReady(false);
-        await dispatch(searchByName(search))
+        dispatch(searchByName(search))
         isReady(true);
     }
 

@@ -160,7 +160,7 @@ const deletedDog = async (id) => {
         const dog = await Dog.destroy({
             where: { id}
         })
-        !dog.length ? 'Dog not found': 'Dog was delete' ; 
+        dog.length > 0 ?  'Dog was delete' : 'Dog not found';
 
 }
 
