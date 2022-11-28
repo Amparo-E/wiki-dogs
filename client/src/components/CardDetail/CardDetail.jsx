@@ -18,11 +18,7 @@ const CardDetail = (props) => {
             dispatch(cleanDetail())
          }
     }, [dispatch, id]);
-
-
-    const handleDelete = () => {
-        dispatch(deleteDog(id))
-    }        
+       
     if(!Object.keys(detail).length) return <Loading ready={false}></Loading>;
 
     const splitHeight = detail.height.split('-'); 

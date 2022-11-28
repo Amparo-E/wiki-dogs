@@ -50,8 +50,6 @@ export const loadData = async (dispatch) => {
     return dispatch(applyFilters());
 }
 
-
-
 export const applyFilters = () => {
     return { type: APPLY_FILTERS }
 }
@@ -82,20 +80,6 @@ export const getDetail = (id) => {
         } catch (error) {
             return dispatch({type: ERROR, error});
         }
-    }
-}
-
-export const deleteDog = (id) => {
-    return async function(dispatch){
-        const deletedDog = await axios.delete(`http://localhost:3001/dogs/${id}`)
-        return dispatch({type: DELETE_DOG, payload: deletedDog.data})
-    }
-}
-
-export const putDog = (id, info) => {
-    return async function(dispatch) {
-        const putedDog = await axios.put(`http://localhost:3001/dogs/${id}`, info)
-        return dispatch({type: PUT_DOG, payload: putedDog.data})
     }
 }
 

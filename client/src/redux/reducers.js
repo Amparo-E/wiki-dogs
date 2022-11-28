@@ -112,13 +112,6 @@ const rootReducer = (state = initialState, action) => {
         case CREATE_DOG:
             return {...state, dogs: [...state.dogs, action.payload], error: ''};
 
-        case DELETE_DOG:
-            const deleteDogs = allDogs.filter(dog => dog.id !== action.payload);
-            return {...state, dogs: deleteDogs};
-
-        case PUT_DOG: 
-            return {...state, dogDetail: action.payload, error: ''}
-
         case CLEAN_DETAIL:
             return {...state, dogDetail: {}}
         
