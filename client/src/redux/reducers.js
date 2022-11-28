@@ -3,14 +3,12 @@ import {
     GET_ALL_DOGS,
     GET_ALL_TEMPERAMENTS,
     CREATE_DOG,
-    DELETE_DOG,
     SHOW_DOG_DETAIL,
     SEARCH_BY_NAME,
     CLEAN_DETAIL,
     FROM_ALL,
     APPLY_FILTERS,
     SET_FILTER,
-    PUT_DOG
 } from './types';
 
 const initialState = {
@@ -28,7 +26,6 @@ const initialState = {
 }
 
 const rootReducer = (state = initialState, action) => {
-    let allDogs = state.dogs;
 
     switch (action.type) {
         case ERROR: 
