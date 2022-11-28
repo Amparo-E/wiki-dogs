@@ -46,7 +46,6 @@ const CardDetail = (props) => {
                         <p>They are usally {detail.temperament}</p>
                     </div>
 
-                    <button onClick={handleDelete}>X</button> 
                 </div>
             </div>
         </>
