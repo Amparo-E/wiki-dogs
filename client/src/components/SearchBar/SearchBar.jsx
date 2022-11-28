@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import style from './SearchBar.module.css'
 
-const SearchBar = ({props}) => {
+const SearchBar = (props) => {
     const dispatch = useDispatch();
     const [search, setSearch] = useState('');
 
