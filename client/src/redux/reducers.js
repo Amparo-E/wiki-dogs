@@ -96,7 +96,7 @@ const rootReducer = (state = initialState, action) => {
                     : filteredDogs.sort((a, b) => {
                         a = a.weight.split(' - ')
                         b = b.weight.split(' - ')
-                        return b[1] - a[1];
+                        return b[0] - a[0];
                     });
                     break;
 
