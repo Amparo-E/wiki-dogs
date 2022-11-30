@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { searchByName } from "../../redux/actions";
+import { searchByName, searchByTemp } from "../../redux/actions";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import style from './SearchBar.module.css'
@@ -14,11 +14,11 @@ const SearchBar = (props) => {
         }
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
         
         isReady(false);
-        await dispatch(searchByName(search))
+        dispatch(searchByName(search))
         isReady(true);
     }
 
@@ -37,7 +37,7 @@ const SearchBar = (props) => {
         isReady(true);
     }
 
-    const handleClear = (e) => {
+    const handleClear = () => {
         setSearch('');
     }
 

@@ -92,6 +92,7 @@ export const searchByName = (name) => {
     }
 }
 
+
 export const cleanDetail = () => {
     return {type: CLEAN_DETAIL}
 }

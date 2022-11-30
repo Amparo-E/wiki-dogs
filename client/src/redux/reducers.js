@@ -114,7 +114,8 @@ const rootReducer = (state = initialState, action) => {
         
         case FROM_ALL:
             if(action.payload === 'All') return {...state, dogsFromSource: state.dogs}
-            else return {...state, dogsFromSource: action.payload}            
+            else return {...state, dogsFromSource: action.payload};
+            
         default:
             return {...state};
     }

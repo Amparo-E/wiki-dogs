@@ -157,11 +157,10 @@ const postedDog = async (body) => {
 
 const deletedDog = async (id) => {
  
-        const dog = await Dog.destroy({
+        await Dog.destroy({
             where: { id }
         })
-        !Object.keys(dog).length ? 'Dog not found' : 'Dog was delete' ;
-
+        
 }
 
 const putDog = async (id, body) => {
