@@ -29,6 +29,7 @@ const DogCreate = () => {
     useEffect(() => {
         dispatch(setErrorMessage(''));
         dispatch(getTemperaments());
+        handleValidations();
     }, [dispatch,input]);
 
 
@@ -67,7 +68,7 @@ const DogCreate = () => {
             ...input,
             [e.target.name]: e.target.value,
         });
-        handleValidations();
+        
     }
 
 

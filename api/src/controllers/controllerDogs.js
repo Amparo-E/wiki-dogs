@@ -156,11 +156,19 @@ const postedDog = async (body) => {
 
 
 const deletedDog = async (id) => {
+
+    const findDog = await getFromDb()
+    const finded = findDog.find(d => d.id === id)
+
+    if(!finded){
+        throw new Error('Dog not found');
+    } 
  
         await Dog.destroy({
             where: { id }
         })
-        
+
+        return 'Dog was delted'
 }
 
 const putDog = async (id, body) => {
@@ -175,7 +183,8 @@ const putDog = async (id, body) => {
             min_life_span, 
             temperament
         } = body;
-        await Dog.update({name, 
+        await Dog.update({
+            name, 
             min_height, 
             max_height, 
             min_weight, 

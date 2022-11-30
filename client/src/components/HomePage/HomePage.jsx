@@ -81,7 +81,7 @@ const HomePage = () => {
 
     return (
         <>
-            <SearchBar isReady={isReady}/>
+            <SearchBar isReady={isReady} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
 
             <div className={style.content_select}>                
                 <select onChange={handleFilterByTemperament} className={style.select_box}>

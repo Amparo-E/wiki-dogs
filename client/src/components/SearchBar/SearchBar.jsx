@@ -20,6 +20,7 @@ const SearchBar = (props) => {
         isReady(false);
         dispatch(searchByName(search))
         isReady(true);
+        props.setCurrentPage(1)
     }
 
     const handleInput = (e) => {
