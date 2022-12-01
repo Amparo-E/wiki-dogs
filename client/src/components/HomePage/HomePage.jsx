@@ -20,19 +20,22 @@ const HomePage = () => {
 
     const [getReady, setReady] = useState(false);
 
+    
+    
+    const [currentPage, setCurrentPage] = useState(1);
+    const postPerPage = 8;
+    const lastPostIndex = currentPage * postPerPage;
+    const firstPostIndex = lastPostIndex - postPerPage;
+    
     useEffect(() => {
         dispatch(loadData);
 
         if(allDogs.length > 0) {
             setReady(true);
         }
-    }, [allDogs.length]);
+    }, [dispatch, currentPage, allDogs.length]);
 
-
-    const [currentPage, setCurrentPage] = useState(1);
-    const postPerPage = 8;
-    const lastPostIndex = currentPage * postPerPage;
-    const firstPostIndex = lastPostIndex - postPerPage;
+    // [allDogs.length] --> por las dudas
     
     const currentPost = dogsFiltereds.length > 0
     ? dogsFiltereds.slice(firstPostIndex, lastPostIndex)
@@ -103,8 +106,8 @@ const HomePage = () => {
 
                 <select onChange={handleInfo} className={style.select_box}>
                     <option value="All">All</option>
-                    <option value="api">api</option>
-                    <option value="db">db</option>
+                    <option value="api">Existig</option>
+                    <option value="db">Created</option>
                 </select>
             </div>
 
